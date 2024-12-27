@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D作品</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* 設定平滑滾動 */ 
+    html {
+        scroll-behavior: smooth;
+    }
+   
+    
+</style>
+<link rel="stylesheet" href="port3.css">
+</head>
+
+
+
+<body>
+  <header>
+        
+    <div id="header-content" class="header-content wrapper-content">
+        <h1 class="logo">DA NIEW</h1>
+        <nav class="header-nav">
+            <a href="port0.html">主頁</a>
+            <a href="port1.html">繪畫作品</a>
+            <a href="port2.html">動畫作品</a>
+        </nav>
+
+    </div>
+</header>
+
+<section class="section-primary">
+  <div class="primary-content wrapper-content">
+      <div class="wrapper-primary-text">
+          <h2 id="section1"></h2>
+          <h2 class="primary__title section__title"><br><span class="section__title">
+              3Dworks</span><br></h2>                    
+</section>
+
+<button id="back-to-top" class="back-to-top">↑ TOP</button>
+    <script src="script.js"></script>
+
+
+
+  <!--指定了表單提交的目標 URL。當用戶提交表單時，表單數據將會發送到 http://localhost:3000/upload 這個地址-->
+  <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
+    <label for="image"></label>  <!--for="image"：這個屬性設置 label 與相應表單控件的關聯。 當用戶點擊這段文字時，會觸發圖片選擇框。 -->
+    <input type="file" name="image" id="image" required>  <!--打開操作系統的文件選擇窗口，允許用戶選擇圖片。-->
+    <button type="submit">Upload</button>
+  </form>
+  
+  
+
+  <ul id="imageList"></ul>
+
+  <!--這段代碼會發送一個 GET 請求到 http://localhost:3000/images，獲取已上傳圖片的信息。
+    如果請求成功並返回圖片數據（假設是 JSON 格式），它會遍歷這些圖片，並為每個圖片創建一個 <img> 標籤，設置其 src 屬性為圖片的路徑。
+    每個圖片會被包裹在一個 <li> 元素中，並添加到頁面上 ID 為 imageList 的元素中（可能是一個 <ul> 或 <ol>）。
+    如果圖片加載失敗，該圖片會被從頁面中移除。
+    如果請求失敗（例如網絡錯誤），錯誤信息會被打印到控制台。-->
+  <script>
+    // 取得已上傳的圖片並顯示
+    fetch('http://localhost:3000/images')
+      .then(response => response.json())
+      .then(images => {
+        const imageList = document.getElementById('imageList');
+        images.forEach((image, index) => {
+          const li = document.createElement('li');
+          const img = document.createElement('img');
+          img.src = image.path;
+        
+          img.onerror = function() {
+            img.remove();
+          }
+          
+
+          li.appendChild(img);
+          imageList.appendChild(li);
+        });
+      })
+      .catch(error => console.error('Error fetching images:', error));
+  </script>
+
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-content wrapper-content">
+        <div>
+            <div class="logo">DA NIEW</div>
+            <div class="footer__license">© 2024 DA NIEW</div>
+            <div class="footer-nav-list__text">poketerry99239@gmail.com</div>
+        </div>
+       
+    </div>
+</footer>
+
+
+<script>
+  // 等待頁面加載完成後執行
+  window.addEventListener('load', () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 設定滾動視差效果
+    gsap.from("#imageList", {
+      y: 100,  // 初始位置在視窗下方
+      opacity: 0,  // 開始時隱藏
+      scrollTrigger: {
+        trigger: "#imageList", // 當這個元素進入視窗時觸發動畫
+        start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
+        end: "top 40%", // 當區塊的底部到達視窗頂部時結束
+        scrub: true, // 使動畫與滾動同步
+        markers: false // 不顯示滾動觸發的標記
+      }
+    });
+  });
+</script>
+
+<script>
+  // 等待頁面加載完成後執行
+  window.addEventListener('load', () => {
+    // 註冊 ScrollTrigger 插件
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 設定頁首逐漸消失的效果
+    gsap.to(".section-primary", {
+      opacity: 0, // 滾動時使頁首透明度變為0
+      scrollTrigger: {
+        trigger: "#header", // 當頁首元素觸發時開始動畫
+        start: "top top", // 頁首頂部進入視窗頂部時觸發
+        end: "top -100%", // 當頁首完全離開視窗頂部時結束動畫
+        scrub: true, // 與滾動同步
+        markers: false // 隱藏標記
+      }
+    });
+  });
+  </script>
+
+  
+</body>
+
+</html>

@@ -1,146 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D作品</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <style>
+        /* 設定平滑滾動 */ 
+        html {
+            scroll-behavior: smooth;
+        }
 
-  <style>
-    /* 設定平滑滾動 */ 
-    html {
-        scroll-behavior: smooth;
-    }
-   
-    
-</style>
-<link rel="stylesheet" href="port3.css">
+    </style>
+    <link rel="stylesheet" href="style.css">  
 </head>
 
 
 
+         <!-- header -->
 <body>
-  <header>
-        
-    <div id="header-content" class="header-content wrapper-content">
-        <h1 class="logo">DA NIEW</h1>
-        <nav class="header-nav">
-            <a href="port0.html">主頁</a>
-            <a href="port1.html">繪畫作品</a>
-            <a href="port2.html">動畫作品</a>
-        </nav>
-
-    </div>
-</header>
-
-<section class="section-primary">
-  <div class="primary-content wrapper-content">
-      <div class="wrapper-primary-text">
-          <h2 id="section1"></h2>
-          <h2 class="primary__title section__title"><br><span class="section__title">
-              3Dworks</span><br></h2>                    
-</section>
-
-<button id="back-to-top" class="back-to-top">↑ TOP</button>
-    <script src="script.js"></script>
-
-
-
-  <!--指定了表單提交的目標 URL。當用戶提交表單時，表單數據將會發送到 http://localhost:3000/upload 這個地址-->
-  <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
-    <label for="image"></label>  <!--for="image"：這個屬性設置 label 與相應表單控件的關聯。 當用戶點擊這段文字時，會觸發圖片選擇框。 -->
-    <input type="file" name="image" id="image" required>  <!--打開操作系統的文件選擇窗口，允許用戶選擇圖片。-->
-    <button type="submit">Upload</button>
-  </form>
-  
-  
-
-  <ul id="imageList"></ul>
-
-  <!--這段代碼會發送一個 GET 請求到 http://localhost:3000/images，獲取已上傳圖片的信息。
-    如果請求成功並返回圖片數據（假設是 JSON 格式），它會遍歷這些圖片，並為每個圖片創建一個 <img> 標籤，設置其 src 屬性為圖片的路徑。
-    每個圖片會被包裹在一個 <li> 元素中，並添加到頁面上 ID 為 imageList 的元素中（可能是一個 <ul> 或 <ol>）。
-    如果圖片加載失敗，該圖片會被從頁面中移除。
-    如果請求失敗（例如網絡錯誤），錯誤信息會被打印到控制台。-->
-  <script>
-    // 取得已上傳的圖片並顯示
-    fetch('http://localhost:3000/images')
-      .then(response => response.json())
-      .then(images => {
-        const imageList = document.getElementById('imageList');
-        images.forEach((image, index) => {
-          const li = document.createElement('li');
-          const img = document.createElement('img');
-          img.src = image.path;
-        
-          img.onerror = function() {
-            img.remove();
-          }
-          
-
-          li.appendChild(img);
-          imageList.appendChild(li);
-        });
-      })
-      .catch(error => console.error('Error fetching images:', error));
-  </script>
-
-
-  <!-- footer -->
-  <footer>
-    <div class="footer-content wrapper-content">
-        <div>
-            <div class="logo">DA NIEW</div>
-            <div class="footer__license">© 2024 DA NIEW</div>
-            <div class="footer-nav-list__text">poketerry99239@gmail.com</div>
+    <header>
+        <!--  <div> 標籤用來包裹其他元素，可以理解為容器。 -->
+        <div id="header-content" class="header-content wrapper-content">
+            <h1 class="logo">DA NIEW</h1>
+            <nav class="header-nav">
+                <a href="#section1">主頁</a> 
+                <a href="#section2">關於我</a>
+                <a href="#section3">各類作品</a>
+            </nav>
+             <!--  <nav> 標籤用來表示一個網站的導航區塊，通常包含指向網站其他頁面的連結 -->
+             <!--<a> 是一個超連結標籤（anchor tag）-->
         </div>
-       
-    </div>
-</footer>
+    </header>
+
+
+
+         <!-- 大橫幅 -->
+    <main>
+         <!-- <section> 標籤用來定義一個區塊或內容部分，這部分通常是頁面的一個獨立區域。 -->
+         <!-- <br> 標籤是換行符號，用來換行顯示 "MY" 和 "PORTFOLIO"。
+            <span class="sectiontitle"> 用來標註 "PORTFOLIO" 這個字，使它可以有單獨的樣式設計。 -->
+          <section class="section-primary">
+            <div class="primary-content wrapper-content">
+                <div class="wrapper-primary-text">
+                    <h2 id="section1"></h2>
+                    <h2 class="primary__title section__title">MY<br><span class="section__title">
+                        PORTFOLIO</span><br></h2>
+                    
+                    <a href="#section3" class="primary__link-button link-button">View Works</a> 
+                    <div class="primary__social">
+                        <a href="https://www.instagram.com/daniew_art/profilecard/?igsh=dXlsc3hkcm1qNGYw"><img src="ig.png" alt="" width="38" height="38"></a>
+                        <a href="https://www.youtube.com/@daniew4777"><img src="yt.png" alt="" width="38" height="38"></a>
+                    </div>
+                </div>
+                <img class="primary__main-img" src="小米芬.png" alt="" >
+                <!-- alt="" 表示如果圖片無法顯示時的替代文字，但這裡沒有提供具體文字。 -->
+            </div>
+        </section>
+
+
+
+        
+          <!-- about me -->
+        <section class="section-about">
+            <div class="secondary-content wrapper-content">
+                <h2 id="section2"></h2>
+                <h2 class="secondary__title2">關於我</h2>            
+                <div class="wrapper-about">
+                    <img class="about__img" src="ME.png">
+                    <div class="wrapper-about-text">
+                        <p>
+                            就讀國立台中科技大學的多媒體設計系，擅長2D平面繪圖，正在學習剪輯與製作動畫。</p>
+                        <div class="about__title">常用軟體</div>
+                        
+                        <ul class="about__skill-list">
+                            <!-- <ul> 標籤表示無序列表（unordered list），
+                            用來展示一組項目，通常有小圓點或其他標記符號。 ol是有序列表-->
+                            <li class="about__skill-item">Adobe Photoshop</li>
+                            <li class="about__skill-item">Adobe Illustrator</li>
+                            <li class="about__skill-item">Adobe Premiere</li>
+                            <!--<li> 標籤表示列表中的一項，通常是 <ul> 或 <ol>內的子元素。-->
+                        </ul>
+                        <div class="about__title">正在學習</div>
+                        <ul class="about__skill-list">
+                            <li class="about__skill-item">Procreate</li>
+                            <li class="about__skill-item">Maya</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+             <!-- 各類作品 -->
+        <section class="section-selected-works">
+            <div class="secondary-content wrapper-content">
+                <h2 id="section3"></h2>
+                <h2 class="secondary__title section__title">各類作品</h2>
+                <div class="wrapper-selected-works">
+                    <div class="wrapper-work1">
+                        <img src="繪畫作品.png" alt="" height="300px" width="300px">
+                        <div class="wrapper-work-text">
+                            <h3 class="work__title">繪畫作品</h3>
+                            <div class="work__position">Illastration<br>PS </div>
+                            <div>我的各種插畫作品</div>
+                            <a href="port1.html" class="work__link-button link-button">查看更多</a>
+                            
+                        </div>
+                    </div>
+
+                    <div class="wrapper-work2">
+                        <img src="動畫作品.png" alt="" height="300px" width="300px">
+                        <div class="wrapper-work-text">
+                            <h3 class="work__title">動畫作品</h3>
+                            <div class="work__position">Animation<br>PS PR</div>
+                            <div>用PS和PR製作的手繪動畫</div>
+                            <a href="port2.html" class="work__link-button link-button">查看更多</a>
+                            
+                        </div>
+                    </div>
+
+                    <div class="wrapper-work3">
+                        <img src="3d作品.jpg" alt="" height="300px" width="300px">
+                        <div class="wrapper-work-text">
+                            <h3 class="work__title">3D作品</h3>
+                            <div class="work__position">3D ARTS<br>MAYA</div>
+                            <div>各種3D作品</div>
+                            <a href="index.html" class="work__link-button link-button">查看更多</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+         <!-- footer -->
+    <footer>
+        <div class="footer-content wrapper-content">
+            <div>
+                <div class="logo">DA NIEW</div>
+                <div class="footer__license">© 2024 DA NIEW</div>
+                <div class="footer-nav-list__text">poketerry99239@gmail.com</div>
+            </div>
+           
+        </div>
+    </footer>
+
+
+
+    
+    <!--那三個-->
+     <script>
+        // 等待頁面加載完成後執行
+        window.addEventListener('load', () => {
+          gsap.registerPlugin(ScrollTrigger);
+      
+          // 設定滾動視差效果
+          gsap.fromTo(".wrapper-work1 ", 
+            {
+              y: 100,  // 初始位置在視窗下方
+              opacity: 0  // 開始時隱藏
+            },
+            {
+              y: 0,  // 滾動時平移到正常位置
+              opacity: 1,  // 滾動時顯示出來
+              scrollTrigger: {
+                trigger: ".section-selected-works", // 當這個元素進入視窗時觸發動畫
+                start: "top 40%", // 當區塊的頂部到達視窗底部時開始
+                end: "top 15%", // 當區塊的底部到達視窗頂部時結束
+                scrub: true, // 使動畫與滾動同步
+                markers: false // 不顯示滾動觸發的標記
+              }
+            });
+        });
+      </script> 
 
 
 <script>
-  // 等待頁面加載完成後執行
-  window.addEventListener('load', () => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // 設定滾動視差效果
-    gsap.from("#imageList", {
-      y: 100,  // 初始位置在視窗下方
-      opacity: 0,  // 開始時隱藏
-      scrollTrigger: {
-        trigger: "#imageList", // 當這個元素進入視窗時觸發動畫
-        start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
-        end: "top 40%", // 當區塊的底部到達視窗頂部時結束
-        scrub: true, // 使動畫與滾動同步
-        markers: false // 不顯示滾動觸發的標記
-      }
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+  
+      // 設定滾動視差效果
+      gsap.fromTo(".wrapper-work2", 
+        {
+          y: 100,  // 初始位置在視窗下方
+          opacity: 0  // 開始時隱藏
+        },
+        {
+          y: 0,  // 滾動時平移到正常位置
+          opacity: 1,  // 滾動時顯示出來
+          scrollTrigger: {
+            trigger: ".section-selected-works", // 當這個元素進入視窗時觸發動畫
+            start: "top 20%", // 當區塊的頂部到達視窗底部時開始
+            end: "top 10%", // 當區塊的底部到達視窗頂部時結束
+            scrub: true, // 使動畫與滾動同步
+            markers: false // 不顯示滾動觸發的標記
+          }
+        });
     });
-  });
-</script>
+  </script> 
+
 
 <script>
-  // 等待頁面加載完成後執行
-  window.addEventListener('load', () => {
-    // 註冊 ScrollTrigger 插件
-    gsap.registerPlugin(ScrollTrigger);
-
-    // 設定頁首逐漸消失的效果
-    gsap.to(".section-primary", {
-      opacity: 0, // 滾動時使頁首透明度變為0
-      scrollTrigger: {
-        trigger: "#header", // 當頁首元素觸發時開始動畫
-        start: "top top", // 頁首頂部進入視窗頂部時觸發
-        end: "top -100%", // 當頁首完全離開視窗頂部時結束動畫
-        scrub: true, // 與滾動同步
-        markers: false // 隱藏標記
-      }
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+  
+      // 設定滾動視差效果
+      gsap.fromTo(".wrapper-work3", 
+        {
+          y: 100,  // 初始位置在視窗下方
+          opacity: 0  // 開始時隱藏
+        },
+        {
+          y: 0,  // 滾動時平移到正常位置
+          opacity: 1,  // 滾動時顯示出來
+          scrollTrigger: {
+            trigger: ".section-selected-works", // 當這個元素進入視窗時觸發動畫
+            start: "top 8%", // 當區塊的頂部到達視窗底部時開始
+            end: "top 2%", // 當區塊的底部到達視窗頂部時結束
+            scrub: true, // 使動畫與滾動同步
+            markers: false // 不顯示滾動觸發的標記
+          }
+        });
     });
-  });
+  </script> 
+
+
+
+  <!--關於我-->
+<script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定滾動視差效果
+      gsap.from(".section-about", {
+        y: 100,  // 初始位置在視窗下方
+        opacity: 0,  // 開始時隱藏
+        scrollTrigger: {
+          trigger: ".section-about", // 當這個元素進入視窗時觸發動畫
+          start: "top 30%", // 當區塊的頂部到達視窗80%的位置時開始
+          end: "top 15%", // 當區塊的底部到達視窗頂部時結束
+          scrub: true, // 使動畫與滾動同步
+          markers: false // 不顯示滾動觸發的標記
+        }
+      });
+    });
   </script>
 
-  
+
+  <!--頁首-->
+<script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      // 註冊 ScrollTrigger 插件
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定頁首逐漸消失的效果
+      gsap.to(".section-primary", {
+        opacity: 0, // 滾動時使頁首透明度變為0
+        scrollTrigger: {
+          trigger: "#header", // 當頁首元素觸發時開始動畫
+          start: "top top", // 頁首頂部進入視窗頂部時觸發
+          end: "top -100%", // 當頁首完全離開視窗頂部時結束動畫
+          scrub: true, // 與滾動同步
+          markers: false // 隱藏標記
+        }
+      });
+    });
+  </script>
+      
+
 </body>
 
-</html>
