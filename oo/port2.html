@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動畫作品</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <style>
+        /* 設定平滑滾動 */ 
+        html {
+            scroll-behavior: smooth;
+        }
+       
+        
+    </style>
+     
+     <link rel="stylesheet" href="port1.css">
+</head> 
+
+
+<body>
+    <header>
+        
+        <div id="header-content" class="header-content wrapper-content">
+            <h1 class="logo">DA NIEW</h1>
+            <nav class="header-nav">
+                <a href="port0.html">主頁</a> 
+                <a href="port1.html">繪畫作品</a>
+                <a href="port3.html">3D作品</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <button id="back-to-top" class="back-to-top">↑ TOP</button>
+    <script src="script.js"></script>
+
+    <section class="section-primary">
+        <div class="primary-content wrapper-content">
+            <div class="wrapper-primary-text">
+                <h2 id="section1"></h2>
+                <h2 class="primary__title section__title"><br><span class="section__title">
+                    Animation</span><br></h2>                    
+    </section>
+
+
+    <section class="pic1">
+        <div class="secondary-content wrapper-content">
+            <h2 id="section2"></h2>
+            <h2 class="secondary__title2"></h2>            
+            <div class="wrapper-about">
+                <img class="about__img" src="動畫作品.png">
+                <div class="pic1_s">
+                    <p>
+                        喚彩作戰</p>
+                    <div class="about__title">大黑小白前往色彩王國遇到的種種</div>
+
+                    <div class="yt"> <a href="https://www.youtube.com/watch?v=XXh0NdE8aM0"><img src="yt.png"
+                         alt="" width="60" height="60"></a></div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pic2">
+        <div class="secondary-content wrapper-content">
+            <h2 id="section2"></h2>
+            <h2 class="secondary__title2"></h2>            
+            <div class="wrapper-about">
+                <img class="about__img" src="可愛連拍.png">
+                <div class="pic1_s">
+                    <p>
+                        可愛連拍</p>
+                    <div class="about__title">參與可愛連拍活動的小白!</div>
+
+                    <div class="yt"> <a href="https://www.youtube.com/watch?v=HviR-BTcZhY"><img src="yt.png"
+                      alt="" width="60" height="60"></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="pic3">
+        <div class="secondary-content wrapper-content">
+            <h2 id="section2"></h2>
+            <h2 class="secondary__title2"></h2>            
+            <div class="wrapper-about">
+                <img class="about__img" src="青蛙.png">
+                <div class="pic1_s">
+                    <p>
+                        小青蛙</p>
+                    <div class="about__title">製作青蛙吃蒼蠅的光柵動畫</div>
+
+                    <div class="yt"> <a href="https://www.youtube.com/watch?v=5glVsOb0L50"><img src="yt.png"
+                      alt="" width="60" height="60"></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+         <!-- footer -->
+         <footer>
+            <div class="footer-content wrapper-content">
+                <div>
+                    <div class="logo">DA NIEW</div>
+                    <div class="footer__license">© 2024 DA NIEW</div>
+                    <div class="footer-nav-list__text">poketerry99239@gmail.com</div>
+                </div>
+               
+            </div>
+        </footer>
+
+
+      <script>
+            // 等待頁面加載完成後執行
+            window.addEventListener('load', () => {
+              gsap.registerPlugin(ScrollTrigger);
+        
+              // 設定滾動視差效果
+              gsap.from(".pic1", {
+                x: -200,  // 初始位置在視窗下方
+                opacity: 0,  // 開始時隱藏
+                scrollTrigger: {
+                  trigger: ".pic1", // 當這個元素進入視窗時觸發動畫
+                  start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
+                  end: "top 40%", // 當區塊的底部到達視窗頂部時結束
+                  scrub: true, // 使動畫與滾動同步
+                  markers: false // 不顯示滾動觸發的標記
+                }
+              });
+            });
+          </script> 
+
+    <script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定滾動視差效果
+      gsap.from(".pic2", {
+        x: 200,  // 初始位置在視窗下方
+        opacity: 0,  // 開始時隱藏
+        scrollTrigger: {
+          trigger: ".pic2", // 當這個元素進入視窗時觸發動畫
+          start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
+          end: "top 40%", // 當區塊的底部到達視窗頂部時結束
+          scrub: true, // 使動畫與滾動同步
+          markers: false // 不顯示滾動觸發的標記
+        }
+      });
+    });
+    </script>
+
+<script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定滾動視差效果
+      gsap.from(".pic3", {
+        x: -200,  // 初始位置在視窗下方
+        opacity: 0,  // 開始時隱藏
+        scrollTrigger: {
+          trigger: ".pic3", // 當這個元素進入視窗時觸發動畫
+          start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
+          end: "top 40%", // 當區塊的底部到達視窗頂部時結束
+          scrub: true, // 使動畫與滾動同步
+          markers: false // 不顯示滾動觸發的標記
+        }
+      });
+    });
+    </script>
+
+<script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定滾動視差效果
+      gsap.from(".pic4", {
+        x: 200,  // 初始位置在視窗下方
+        opacity: 0,  // 開始時隱藏
+        scrollTrigger: {
+          trigger: ".pic4", // 當這個元素進入視窗時觸發動畫
+          start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
+          end: "top 40%", // 當區塊的底部到達視窗頂部時結束
+          scrub: true, // 使動畫與滾動同步
+          markers: false // 不顯示滾動觸發的標記
+        }
+      });
+    });
+    </script>
+
+
+          <!--頁首-->
+    <script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      // 註冊 ScrollTrigger 插件
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定頁首逐漸消失的效果
+      gsap.to(".section-primary", {
+        opacity: 0, // 滾動時使頁首透明度變為0
+        scrollTrigger: {
+          trigger: "#header", // 當頁首元素觸發時開始動畫
+          start: "top top", // 頁首頂部進入視窗頂部時觸發
+          end: "top -100%", // 當頁首完全離開視窗頂部時結束動畫
+          scrub: true, // 與滾動同步
+          markers: false // 隱藏標記
+        }
+      });
+    });
+    </script>
+
+
+  

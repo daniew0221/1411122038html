@@ -1,0 +1,342 @@
+
+/*設置大尺寸螢幕樣式*/
+
+/*.wrapper-content 是一個類別選擇器，用來選擇所有擁有 wrapper-content 類別的元素並對其應用樣式。*/
+.wrapper-content {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  /* margin 属性为给定元素设置所有四个（上右下左）方向的外边距属性。
+   也就是 margin-top、margin-right、margin-bottom 和 margin-left 四个外边距属性设置的简写。*/
+
+  /*左右邊距設為 auto，這樣元素會在其父容器中居中顯示。*/
+}
+
+.section-primary,footer {
+  background-color: #fef3ff;
+}
+
+header {
+  background-color: #ede1f8;
+}
+
+
+/*在 Pimary 區塊，除了調整左右兩欄的寬度佔比，還要讓右側的圖片貼緊區塊的底部。*/
+
+/*@media 是用來定義媒體查詢的 CSS 規則。
+  媒體查詢允許你針對不同的設備條件（如螢幕大小、解析度等）來應用不同的樣式。*/
+
+  /*screen 表示這些樣式僅適用於螢幕顯示設備（如桌面、手機、平板等）。*/
+@media screen and (max-width: 1023px) and (min-width: 1px) {
+  .primary-content {
+    padding-bottom: 0;
+    /*padding-bottom 為底部內邊距 
+     這通常是為了調整元素在小螢幕下的佈局，避免底部過多的空間*/
+  }
+  
+  .wrapper-primary-text {
+    width: 50%;
+    padding-bottom: 80px;
+    margin-right: 30px;
+  }
+
+
+}
+
+@media screen and (max-width: 670px) and (min-width: 1px) {
+  .primary__main-img {
+    width: 50%;
+    align-self: flex-end;
+    opacity:0
+    /*align-self: flex-end; 使用了 CSS Flexbox 的對齊屬性
+     可以幫助將圖片向下對齊，並與文字內容形成協調的佈局。*/
+  }
+ 
+}
+body {
+  overflow-x: hidden; /* 隱藏橫向滾動條 */
+  margin: 0; /* 移除預設的外邊距 */
+}
+
+
+/*header*/
+.header-content {
+  background-color: #ede1f8;
+  height: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  /*這個屬性將元素設置為 Flex容器（flex container）。
+   當一個元素的 display 屬性設為 flex 時，它的直接子元素會自動成為 Flex項目（flex items）。*/
+  justify-content: space-between;
+  /* justify-content 屬性用來設置 Flex容器中子元素沿主軸（水平方向）如何分布。 */
+  align-items: center;
+  /*align-items 屬性用來設置 Flex容器中子元素沿交叉軸（垂直方向）如何對齊。*/
+}
+
+.header-nav {
+  width: 270px;
+  padding-right: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*設定外觀、文字*/
+body {
+  font-family: 微軟正黑體,"Noto sans TC", sans-serif;
+  letter-spacing: 1px;  /*字距*/
+  color: #333;
+  line-height: 1.4;  /*行距*/
+}
+
+a {
+  text-decoration: none;
+  color: #58227c;
+}
+/*所有的 <a> 標籤（即超連結）將顯示為黑色文字，並且不會有下劃線*/
+
+
+.logo {
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  font-size: 24px;
+  color: #000;
+  text-decoration: underline;
+}
+
+.nav__text {
+  letter-spacing: 3px;
+}
+
+.link-text:hover {
+  transition: all 0.2s;    /* 轉場效果 */
+  color: #ffd16f;
+}
+
+
+
+/*設定排版、寬高樣式*/
+.primary-content {
+  background-color: #fef3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
+ 
+}
+
+.wrapper-primary-text {
+  width: 40%;
+}
+
+.primary__main-img {
+  width: 60%;
+  height: 90%;
+}
+
+/*設定外觀、文字*/
+.section__title {
+  font-weight: bold;
+  color: #000;
+  letter-spacing: 2px;  /*字距*/
+  line-height: 1.2;  /*行距*/
+
+}
+
+.primary__title {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.primary__title > span {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.primary__text {
+  margin-bottom: 25px;
+}
+
+
+/*Button*/
+.link-button {
+  display: inline-block;
+  background-color: #3a3a3a;
+  border-radius: 3px;
+  padding: 10px 20px;
+  color: white;
+  letter-spacing: 4px;
+}
+
+.primary__link-button {
+  margin-bottom: 30px;    
+}
+
+.link-button:hover {
+  background-color: #f1bb31;
+}
+
+
+/*背景*/
+body{
+  background-image: url('米芬笑.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*cover 表示背景圖像會按比例縮放，直到完全覆蓋 <body> 元素的背景區域。*/
+  background-attachment: fixed;
+  /*fixed 表示背景圖像將固定在視口中，即使用戶滾動頁面，背景圖像也不會移動。
+    背景圖像會始終停留在同一位置，創造一種視差效果。*/
+}
+
+
+
+/* about me*/
+
+/* 讓最外層的容器寬度大一點,使圖片和文字不會擠在一起*/
+@media screen and (max-width: 1023px) and (min-width: 1px) {
+  .wrapper-about {
+    max-width: 900px;
+    width: 80%;
+  }
+}
+
+
+.wrapper-about {
+  width: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 200px;
+}
+
+
+.about__img {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.wrapper-about-text {
+  width: 60%;
+ 
+}
+
+.about__title {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.about__skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.about__skill-item {
+  margin: 2px 60px 2px 0;
+}
+
+.about__link-button {
+  margin-top: 30px;
+}
+
+.secondary__title2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+/*3個*/
+
+/*這坨是要讓那三個在小視窗可以並排顯示*/
+@media screen and (max-width: 1023px) and (min-width: 1px) {
+  .wrapper-selected-works {
+    width: 600px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .wrapper-work1 {
+    display: flex;
+    margin-bottom: 50px;
+  }
+  .wrapper-work2 {
+    display: flex;
+    margin-bottom: 50px;
+  }
+  .wrapper-work3 {
+    display: flex;
+    margin-bottom: 50px;
+  }
+  .wrapper-work-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 30px;
+  }
+  .work__title {
+    margin-top: 0;
+  }
+}
+
+
+.secondary-content {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper-selected-works {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondary__title {
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.work__title {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.work__position {
+  color: #777;
+  height: 46px;
+  margin-bottom: 10px;
+}
+
+.work__link-button {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+
+
+/*FOOTER*/
+
+footer {
+  margin-top: 300px;
+}
+
+.footer-content {
+  background-color: #fef3ff;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.5;
+}
+
+
+.footer-nav-list {
+  color: #000;    /*一併設定內元素的文字顏色*/
+  display: flex;
+  flex-direction: column;
+}
+

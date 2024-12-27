@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>繪畫作品</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <style>
+        /* 設定平滑滾動 */ 
+        html {
+            scroll-behavior: smooth;
+        }
+       
+        
+    </style>
+     
+     <link rel="stylesheet" href="port1.css">
+</head> 
+
+
+<body>
+    <header>
+        
+        <div id="header-content" class="header-content wrapper-content">
+            <h1 class="logo">DA NIEW</h1>
+            <nav class="header-nav">
+                <a href="port0.html">主頁</a> 
+                <a href="port2.html">動畫作品</a>
+                <a href="index.html">3D作品</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <button id="back-to-top" class="back-to-top">↑ TOP</button>
+    <script src="script.js"></script>
+
+    <section class="section-primary">
+        <div class="primary-content wrapper-content">
+            <div class="wrapper-primary-text">
+                <h2 id="section1"></h2>
+                <h2 class="primary__title section__title"><br><span class="section__title">
+                    Illastration</span><br></h2>                    
+    </section>
+
+
+    <section class="pic1">
+        <div class="secondary-content wrapper-content">
+            <h2 id="section2"></h2>
+            <h2 class="secondary__title2"></h2>            
+            <div class="wrapper-about">
+                <img class="about__img" src="1.png">
+                <div class="pic1_s">
+                    <p>
+                        盛裝打扮</p>
+                    <div class="about__title">小兔子精心打扮，不是為了見某個人，只是想把心裡的殘破掩蓋起來</div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pic2">
+        <div class="secondary-content wrapper-content">
+            <h2 id="section2"></h2>
+            <h2 class="secondary__title2"></h2>            
+            <div class="wrapper-about">
+                <img class="about__img" src="2.png">
+                <div class="pic1_s">
+                    <p>
+                        早晨時光</p>
+                    <div class="about__title">剛起床的白髮女生穿著睡衣，因為寒冷而披上了一件外套，對著鏡頭露出一抹微笑</div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="pic3">
+        <div class="secondary-content wrapper-content">
+            <h2 id="section2"></h2>
+            <h2 class="secondary__title2"></h2>            
+            <div class="wrapper-about">
+                <img class="about__img" src="3.png">
+                <div class="pic1_s">
+                    <p>
+                        夕陽下的約會</p>
+                    <div class="about__title">在夕陽的餘暉之下，對未來有了更多的期待</div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pic4">
+        <div class="secondary-content wrapper-content">
+            <h2 id="section2"></h2>
+            <h2 class="secondary__title2"></h2>            
+            <div class="wrapper-about">
+                <img class="about__img" src="4.png">
+                <div class="pic1_s">
+                    <p>
+                        笑出來吧</p>
+                    <div class="about__title">女孩的眼裡再無光芒，即便如此，這個世界還是有值得笑出來的事吧</div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+         <!-- footer -->
+         <footer>
+            <div class="footer-content wrapper-content">
+                <div>
+                    <div class="logo">DA NIEW</div>
+                    <div class="footer__license">© 2024 DA NIEW</div>
+                    <div class="footer-nav-list__text">poketerry99239@gmail.com</div>
+                </div>
+               
+            </div>
+        </footer>
+
+
+      <script>
+            // 等待頁面加載完成後執行
+            window.addEventListener('load', () => {
+              gsap.registerPlugin(ScrollTrigger);
+        
+              // 設定滾動視差效果
+              gsap.from(".pic1", {
+                x: -200,  // 初始位置在視窗下方
+                opacity: 0,  // 開始時隱藏
+                scrollTrigger: {
+                  trigger: ".pic1", // 當這個元素進入視窗時觸發動畫
+                  start: "top 60%", // 當區塊的頂部到達視窗60%的位置時開始
+                  end: "top 40%", 
+                  scrub: true, // 使動畫與滾動同步
+                  markers: false // 不顯示滾動觸發的標記
+                }
+              });
+            });
+          </script> 
+
+    <script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定滾動視差效果
+      gsap.from(".pic2", {
+        x: 200,  // 初始位置在視窗下方
+        opacity: 0,  // 開始時隱藏
+        scrollTrigger: {
+          trigger: ".pic2", // 當這個元素進入視窗時觸發動畫
+          start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
+          end: "top 40%", // 當區塊的底部到達視窗頂部時結束
+          scrub: true, // 使動畫與滾動同步
+          markers: false // 不顯示滾動觸發的標記
+        }
+      });
+    });
+    </script>
+
+<script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定滾動視差效果
+      gsap.from(".pic3", {
+        x: -200,  // 初始位置在視窗下方
+        opacity: 0,  // 開始時隱藏
+        scrollTrigger: {
+          trigger: ".pic3", // 當這個元素進入視窗時觸發動畫
+          start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
+          end: "top 40%", // 當區塊的底部到達視窗頂部時結束
+          scrub: true, // 使動畫與滾動同步
+          markers: false // 不顯示滾動觸發的標記
+        }
+      });
+    });
+    </script>
+
+<script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定滾動視差效果
+      gsap.from(".pic4", {
+        x: 200,  // 初始位置在視窗下方
+        opacity: 0,  // 開始時隱藏
+        scrollTrigger: {
+          trigger: ".pic4", // 當這個元素進入視窗時觸發動畫
+          start: "top 60%", // 當區塊的頂部到達視窗80%的位置時開始
+          end: "top 40%", // 當區塊的底部到達視窗頂部時結束
+          scrub: true, // 使動畫與滾動同步
+          markers: false // 不顯示滾動觸發的標記
+        }
+      });
+    });
+    </script>
+
+
+          <!--頁首-->
+    <script>
+    // 等待頁面加載完成後執行
+    window.addEventListener('load', () => {
+      // 註冊 ScrollTrigger 插件
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 設定頁首逐漸消失的效果
+      gsap.to(".section-primary", {
+        opacity: 0, // 滾動時使頁首透明度變為0
+        scrollTrigger: {
+          trigger: "#header", // 當頁首元素觸發時開始動畫
+          start: "top top", // 頁首頂部進入視窗頂部時觸發
+          end: "top -100%", // 當頁首完全離開視窗頂部時結束動畫
+          scrub: true, // 與滾動同步
+          markers: false // 隱藏標記
+        }
+      });
+    });
+    </script>
+
+
+  
