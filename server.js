@@ -35,13 +35,17 @@ app.post('/upload', upload.single('image'), (req, res) => {
     return res.status(400).send('No file uploaded');
   }
 
-  const newImage = {
-    filename: req.file.filename,
-    originalName: req.file.originalname,
-    path: `/uploads/${req.file.filename}`,
-    size: req.file.size,
-    uploadedAt: new Date(),
-  };
+  const imageUrl = `https://your-app.onrender.com/uploads/${req.file.filename}`;
+  
+const newImage = {
+  filename: req.file.filename,
+  originalName: req.file.originalname,
+  path: `/uploads/${req.file.filename}`, // 這應該是相對路徑
+  imageUrl: `https://your-app.onrender.com/uploads/${req.file.filename}`, // 添加完整的 URL
+  size: req.file.size,
+  uploadedAt: new Date(),
+};
+
 
   db.insert(newImage, (err, newDoc) => {
     if (err) {
