@@ -36,14 +36,13 @@ app.post('/upload', upload.single('image'), (req, res) => {
   }
 
   
-const newImage = {
+  const newImage = {
     filename: req.file.filename,
     originalName: req.file.originalname,
-    path: /uploads/${req.file.filename},
+    path: `/uploads/${req.file.filename}`,
     size: req.file.size,
     uploadedAt: new Date(),
   };
-
 
   db.insert(newImage, (err, newDoc) => {
     if (err) {
