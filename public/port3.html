@@ -22,31 +22,8 @@
 
 <body>
   <header>
-        
-    <div id="header-content" class="header-content wrapper-content">
-        <h1 class="logo">DA NIEW</h1>
-        <nav class="header-nav">
-            <a href="index.html">主頁</a>
-            <a href="port1.html">繪畫作品</a>
-            <a href="port2.html">動畫作品</a>
-        </nav>
 
-    </div>
-</header>
-
-<section class="section-primary">
-  <div class="primary-content wrapper-content">
-      <div class="wrapper-primary-text">
-          <h2 id="section1"></h2>
-          <h2 class="primary__title section__title"><br><span class="section__title">
-            Everyone's gallery</span><br></h2>                    
-</section>
-
-<button id="back-to-top" class="back-to-top">↑ TOP</button>
-    <script src="script.js"></script>
-
-
-
+    
   <!--指定了表單提交的目標 URL。當用戶提交表單時，表單數據將會發送到 http://localhost:3000/upload 這個地址-->
   <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
     <label for="image"></label>  <!--for="image"：這個屬性設置 label 與相應表單控件的關聯。 當用戶點擊這段文字時，會觸發圖片選擇框。 -->
@@ -85,7 +62,28 @@
       })
       .catch(error => console.error('Error fetching images:', error));
   </script>
+        
+    <div id="header-content" class="header-content wrapper-content">
+        <h1 class="logo">DA NIEW</h1>
+        <nav class="header-nav">
+            <a href="index.html">主頁</a>
+            <a href="port1.html">繪畫作品</a>
+            <a href="port2.html">動畫作品</a>
+        </nav>
 
+    </div>
+</header>
+
+<section class="section-primary">
+  <div class="primary-content wrapper-content">
+      <div class="wrapper-primary-text">
+          <h2 id="section1"></h2>
+          <h2 class="primary__title section__title"><br><span class="section__title">
+            Everyone's gallery</span><br></h2>                    
+</section>
+
+<button id="back-to-top" class="back-to-top">↑ TOP</button>
+    <script src="script.js"></script>
 
   <!-- footer -->
   <footer>
