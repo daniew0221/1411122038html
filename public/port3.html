@@ -16,52 +16,14 @@
     
 </style>
 <link rel="stylesheet" href="port3.css">
+
+
 </head>
 
 
 
 <body>
   <header>
-
-    
-  <!--指定了表單提交的目標 URL。當用戶提交表單時，表單數據將會發送到 http://localhost:3000/upload 這個地址-->
-  <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
-    <label for="image"></label>  <!--for="image"：這個屬性設置 label 與相應表單控件的關聯。 當用戶點擊這段文字時，會觸發圖片選擇框。 -->
-    <input type="file" name="image" id="image" required>  <!--打開操作系統的文件選擇窗口，允許用戶選擇圖片。-->
-    <button type="submit">Upload</button>
-  </form>
-  
-  
-
-  <ul id="imageList"></ul>
-
-  <!--這段代碼會發送一個 GET 請求到 http://localhost:3000/images，獲取已上傳圖片的信息。
-    如果請求成功並返回圖片數據（假設是 JSON 格式），它會遍歷這些圖片，並為每個圖片創建一個 <img> 標籤，設置其 src 屬性為圖片的路徑。
-    每個圖片會被包裹在一個 <li> 元素中，並添加到頁面上 ID 為 imageList 的元素中（可能是一個 <ul> 或 <ol>）。
-    如果圖片加載失敗，該圖片會被從頁面中移除。
-    如果請求失敗（例如網絡錯誤），錯誤信息會被打印到控制台。-->
-  <script>
-    // 取得已上傳的圖片並顯示
-    fetch('http://localhost:3000/images')
-      .then(response => response.json())
-      .then(images => {
-        const imageList = document.getElementById('imageList');
-        images.forEach((image, index) => {
-          const li = document.createElement('li');
-          const img = document.createElement('img');
-          img.src = image.path;
-        
-          img.onerror = function() {
-            img.remove();
-          }
-          
-
-          li.appendChild(img);
-          imageList.appendChild(li);
-        });
-      })
-      .catch(error => console.error('Error fetching images:', error));
-  </script>
         
     <div id="header-content" class="header-content wrapper-content">
         <h1 class="logo">DA NIEW</h1>
@@ -84,6 +46,27 @@
 
 <button id="back-to-top" class="back-to-top">↑ TOP</button>
     <script src="script.js"></script>
+
+
+
+  <!--指定了表單提交的目標 URL。當用戶提交表單時，表單數據將會發送到 http://localhost:3000/upload 這個地址-->
+  <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
+    <label for="image"></label>  <!--for="image"：這個屬性設置 label 與相應表單控件的關聯。 當用戶點擊這段文字時，會觸發圖片選擇框。 -->
+    <input type="file" name="image" id="image" required>  <!--打開操作系統的文件選擇窗口，允許用戶選擇圖片。-->
+    <button type="submit">Upload</button>
+  </form>
+  
+  
+
+  <ul id="imageList"></ul>
+
+  <!--這段代碼會發送一個 GET 請求到 http://localhost:3000/images，獲取已上傳圖片的信息。
+    如果請求成功並返回圖片數據（假設是 JSON 格式），它會遍歷這些圖片，並為每個圖片創建一個 <img> 標籤，設置其 src 屬性為圖片的路徑。
+    每個圖片會被包裹在一個 <li> 元素中，並添加到頁面上 ID 為 imageList 的元素中（可能是一個 <ul> 或 <ol>）。
+    如果圖片加載失敗，該圖片會被從頁面中移除。
+    如果請求失敗（例如網絡錯誤），錯誤信息會被打印到控制台。-->
+
+
 
   <!-- footer -->
   <footer>
@@ -137,6 +120,29 @@
     });
   });
   </script>
+
+<script>
+  // 取得已上傳的圖片並顯示
+  fetch('http://localhost:3000/images')
+    .then(response => response.json())
+    .then(images => {
+      const imageList = document.getElementById('imageList');
+      images.forEach((image, index) => {
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = image.path;
+      
+        img.onerror = function() {
+          img.remove();
+        }
+        
+
+        li.appendChild(img);
+        imageList.appendChild(li);
+      });
+    })
+    .catch(error => console.error('Error fetching images:', error));
+</script>
 
   
 </body>
